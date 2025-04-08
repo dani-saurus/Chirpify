@@ -1,0 +1,111 @@
+body {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  height: 100vh;
+  margin: 0;
+  background-color: black;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid gray;
+  padding: 16px;
+}
+
+.sidebar button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 18px;
+  padding: 8px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.profile {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  border-top: 1px solid gray;
+  padding: 8px;
+}
+
+.profile .pfp {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.post-box, .tweet {
+  display: flex;
+  align-items: start;
+  gap: 10px;
+  border-bottom: 1px solid gray;
+  padding: 16px;
+}
+
+.post-box input {
+  flex: 1;
+  background: none;
+  border: none;
+  border-bottom: 1px solid gray;
+  color: white;
+  padding: 8px;
+  outline: none;
+}
+
+.post-box button {
+  border: 1px solid white;
+  padding: 4px 16px;
+  background: none;
+  color: white;
+  cursor: pointer;
+}
+
+.tweet span {
+  font-weight: bold;
+}
+
+/* Style the custom upload button */
+#upload-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-right: 10px;
+}
+
+#upload-button:hover {
+    background-color: #0056b3;
+}
+
+/* Style the post button */
+#post-button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+#post-button:hover {
+    background-color: #218838;
+}

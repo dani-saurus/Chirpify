@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page</title>
+    <link rel="stylesheet" href="chirp.css">
+    <script defer src="chirp.js"></script>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo">
+            <img src="Chirpify_logo.jpeg" alt="Logo" class="logo-img" style="width: 150px;">
+        </div>
+        <button>home</button>
+        <button>notification</button>
+        <div class="profile">
+            <div class="pfp">pfp</div>
+            <span>name</span>
+            <div style="margin-left:auto">...</div>
+        </div>
+    </div>
+    <div class="main-content">
+        <div class="post-box">
+            <div class="pfp">pfp</div>
+            <input id="tweet-input" type="text" placeholder="What's on your mind?">
+            
+            <!-- Hidden file input -->
+            <input id="image-input" type="file" accept="image/*" style="display: none;">
+            
+            <!-- Custom button for file input -->
+            <button id="upload-button">Upload Image</button>
+            
+            <button id="post-button">Post</button>
+        </div>
+        <div id="tweets-container">
+            <!-- Tweets will be dynamically added here -->
+        </div>
+    </div>
+</body>
+</html>

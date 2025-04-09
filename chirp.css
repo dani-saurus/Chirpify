@@ -1,111 +1,199 @@
+/* General Styles */
 body {
-  display: grid;
-  grid-template-columns: 1fr 3fr;
-  height: 100vh;
-  margin: 0;
-  background-color: black;
-  color: white;
-  font-family: Arial, sans-serif;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    background-color: #f5f8fa;
+    color: #333;
 }
 
+/* Sidebar Styles */
 .sidebar {
-  display: flex;
-  flex-direction: column;
-  border-right: 1px solid gray;
-  padding: 16px;
+    width: 250px;
+    background-color: #1da1f2;
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
 
-.sidebar button {
-  background: none;
-  border: none;
-  color: white;
-  font-size: 18px;
-  padding: 8px;
-  text-align: left;
-  cursor: pointer;
+.logo-img {
+    width: 150px;
+    margin-bottom: 20px;
+}
+
+.sidebar-button {
+    background-color: #ffffff;
+    color: #1da1f2;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 16px;
+    margin: 10px 0;
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+}
+
+.sidebar-button:hover {
+    background-color: #e8f5fe;
 }
 
 .profile {
-  margin-top: auto;
-  display: flex;
-  align-items: center;
-  border-top: 1px solid gray;
-  padding: 8px;
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    color: #1da1f2;
+    width: 100%;
+    justify-content: center;
 }
 
-.profile .pfp {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: 1px solid white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 8px;
+.pfp {
+    background-color: #ccc;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: white;
 }
 
+.profile-name {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Main Content Styles */
 .main-content {
-  display: flex;
-  flex-direction: column;
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
-.post-box, .tweet {
-  display: flex;
-  align-items: start;
-  gap: 10px;
-  border-bottom: 1px solid gray;
-  padding: 16px;
+.post-box {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-.post-box input {
-  flex: 1;
-  background: none;
-  border: none;
-  border-bottom: 1px solid gray;
-  color: white;
-  padding: 8px;
-  outline: none;
+.post-box input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    font-size: 14px;
 }
 
-.post-box button {
-  border: 1px solid white;
-  padding: 4px 16px;
-  background: none;
-  color: white;
-  cursor: pointer;
-}
-
-.tweet span {
-  font-weight: bold;
-}
-
-/* Style the custom upload button */
-#upload-button {
-    background-color: #007bff;
+.action-button {
+    background-color: #1da1f2;
     color: white;
     border: none;
     padding: 10px 15px;
-    border-radius: 5px;
+    border-radius: 20px;
     cursor: pointer;
     font-size: 14px;
-    margin-right: 10px;
 }
 
-#upload-button:hover {
-    background-color: #0056b3;
+.action-button:hover {
+    background-color: #0d8de1;
 }
 
-/* Style the post button */
-#post-button {
+/* Tweets Container */
+#tweets-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.tweet {
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.tweet .pfp {
+    width: 30px;
+    height: 30px;
+    font-size: 12px;
+}
+
+.tweet .tweet-actions {
+    margin-top: 10px;
+}
+
+.tweet-actions button {
+    background-color: #1da1f2;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+    margin-right: 5px;
+}
+
+.tweet-actions button:hover {
+    background-color: #0d8de1;
+}
+
+.tweet-actions .liked {
     background-color: #28a745;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
 }
 
-#post-button:hover {
-    background-color: #218838;
+/* Styling for like and comment counts */
+.tweet-actions span {
+    margin-left: 10px;
+    font-size: 14px;
+    color: #555;
+}
+
+.comments-container {
+    margin-top: 10px;
+    padding-left: 20px;
+    border-left: 2px solid #ddd;
+}
+
+.comment {
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #555;
+}
+
+/* Tweet Image Styling */
+.tweet-image img {
+    max-width: 100%;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+/* Navigation Links */
+.edit-profile-link, .back-to-main {
+    display: inline-block;
+    margin-top: 10px;
+    text-decoration: none;
+    color: #1da1f2;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.edit-profile-link:hover, .back-to-main:hover {
+    text-decoration: underline;
 }

@@ -8,7 +8,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const profileNamePreview = document.getElementById("profile-name-preview");
     const profileBioPreview = document.getElementById("profile-bio-preview");
 
-    // Update profile picture preview
     profilePicInput.addEventListener("change", (event) => {
         const file = event.target.files[0];
         if (file) {
@@ -20,7 +19,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Update name and bio preview in real-time
     profileNameInput.addEventListener("input", () => {
         profileNamePreview.textContent = profileNameInput.value || "Your Name";
     });
@@ -29,7 +27,6 @@ document.addEventListener("DOMContentLoaded", () => {
         profileBioPreview.textContent = profileBioInput.value || "Your bio will appear here...";
     });
 
-    // Handle form submission
     profileForm.addEventListener("submit", (event) => {
         event.preventDefault();
         alert("Profile updated successfully!");

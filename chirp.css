@@ -1,4 +1,3 @@
-/* General Styles */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -8,7 +7,6 @@ body {
     color: #333;
 }
 
-/* Sidebar Styles */
 .sidebar {
     width: 250px;
     background-color: #1da1f2;
@@ -73,7 +71,6 @@ body {
     font-weight: bold;
 }
 
-/* Main Content Styles */
 .main-content {
     flex: 1;
     padding: 20px;
@@ -114,7 +111,6 @@ body {
     background-color: #0d8de1;
 }
 
-/* Tweets Container */
 #tweets-container {
     display: flex;
     flex-direction: column;
@@ -157,7 +153,6 @@ body {
     background-color: #28a745;
 }
 
-/* Styling for like and comment counts */
 .tweet-actions span {
     margin-left: 10px;
     font-size: 14px;
@@ -176,14 +171,12 @@ body {
     color: #555;
 }
 
-/* Tweet Image Styling */
 .tweet-image img {
     max-width: 100%;
     border-radius: 10px;
     margin-top: 10px;
 }
 
-/* Navigation Links */
 .edit-profile-link, .back-to-main {
     display: inline-block;
     margin-top: 10px;

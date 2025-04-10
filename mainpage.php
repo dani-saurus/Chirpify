@@ -3,7 +3,6 @@ require_once 'config/database.php';
 session_start();
 
 try {
-    // Join with users table to get username
     $stmt = $pdo->query("
         SELECT posts.*, users.username
         FROM posts
@@ -12,7 +11,6 @@ try {
     ");
     $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
     
-    // Get like counts for each post
     $likeCounts = [];
     $likeStmt = $pdo->query("
         SELECT post_id, COUNT(*) as count
@@ -23,7 +21,6 @@ try {
         $likeCounts[$row['post_id']] = $row['count'];
     }
     
-    // Get comment counts for each post
     $commentCounts = [];
     $commentStmt = $pdo->query("
         SELECT post_id, COUNT(*) as count
@@ -34,7 +31,6 @@ try {
         $commentCounts[$row['post_id']] = $row['count'];
     }
     
-    // Get all comments
     $allComments = [];
     $commentsStmt = $pdo->query("
         SELECT comments.*, users.username
@@ -49,7 +45,6 @@ try {
         $allComments[$row['post_id']][] = $row;
     }
     
-    // Check if current user has liked each post
     $userLikes = [];
     if (isset($_SESSION['user_id'])) {
         $userLikeStmt = $pdo->prepare("
@@ -83,8 +78,7 @@ try {
         <div class="profile">
             <div class="pfp">PFP</div>
             <span class="profile-name">Your Name</span>
-            <!-- Link to the profile page -->
-            <a href="profile.html" class="edit-profile-link">Edit Profile</a>
+            <a href="profile.php" class="edit-profile-link">Edit Profile</a>
         </div>
     </div>
     <div class="main-content">

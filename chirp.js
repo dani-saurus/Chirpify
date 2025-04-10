@@ -1,4 +1,3 @@
-// Wait for the DOM to load
 document.addEventListener("DOMContentLoaded", () => {
     const postForm = document.getElementById("post-form");
     const tweetInput = document.getElementById("tweet-input");
@@ -7,17 +6,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const postButton = document.getElementById("post-button");
     const tweetsContainer = document.getElementById("tweets-container");
 
-    // Initialize event listeners for existing tweets
     document.querySelectorAll('.tweet').forEach(tweet => {
         addTweetListeners(tweet);
     });
 
-    // Trigger file input when the custom button is clicked
     uploadButton.addEventListener("click", () => {
         imageInput.click();
     });
 
-    // Add event listener to the Post button
     postForm.addEventListener("submit", async (e) => {
         e.preventDefault();
         
@@ -56,7 +52,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Function to append tweet content and add listeners
     function appendTweet(tweetElement, tweetContent) {
         tweetContent += `
             <div class="tweet-actions">
@@ -72,7 +67,6 @@ document.addEventListener("DOMContentLoaded", () => {
         addTweetListeners(tweetElement);
     }
 
-    // Function to add listeners for like and comment actions
     function addTweetListeners(tweetElement) {
         const postId = tweetElement.dataset.postId;
         const likeButton = tweetElement.querySelector(".like-button");
@@ -81,7 +75,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const commentCountElement = tweetElement.querySelector(".comment-count");
         const commentsContainer = tweetElement.querySelector(".comments-container");
 
-        // Like button functionality
         likeButton.addEventListener("click", async () => {
             try {
                 const formData = new FormData();
@@ -99,7 +92,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 const data = await response.json();
                 
                 if (data.success) {
-                    // Update UI based on server response
                     if (data.action === 'liked') {
                         likeButton.textContent = "Liked";
                         likeButton.classList.add("liked");
@@ -117,7 +109,6 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
 
-        // Comment button functionality
         commentButton.addEventListener("click", async () => {
             const commentText = prompt("Enter your comment:");
             if (commentText && commentText.trim()) {
@@ -138,7 +129,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     const data = await response.json();
                     
                     if (data.success) {
-                        // Create and append the new comment element
                         const commentElement = document.createElement("div");
                         commentElement.classList.add("comment");
                         commentElement.innerHTML = `
@@ -147,7 +137,6 @@ document.addEventListener("DOMContentLoaded", () => {
                         `;
                         commentsContainer.appendChild(commentElement);
                         
-                        // Update comment count
                         commentCountElement.textContent = `${data.comment_count} Comments`;
                     } else {
                         throw new Error(data.error || 'Failed to add comment');

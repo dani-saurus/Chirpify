@@ -2,6 +2,17 @@
 require_once 'config/database.php';
 session_start();
 
+// Check if user is logged in
+if (!isset($_SESSION['user_id'])) {
+    header('Location: login.php');
+    exit();
+}
+
+// Fetch current user info
+$userStmt = $pdo->prepare("SELECT * FROM users WHERE id = ?");
+$userStmt->execute([$_SESSION['user_id']]);
+$currentUser = $userStmt->fetch();
+
 try {
     $stmt = $pdo->query("
         SELECT posts.*, users.username
@@ -76,9 +87,12 @@ try {
         <button class="sidebar-button">Home</button>
         <button class="sidebar-button">Notifications</button>
         <div class="profile">
-            <div class="pfp">PFP</div>
-            <span class="profile-name">Your Name</span>
+            <div class="pfp">
+                <?php echo htmlspecialchars(substr($currentUser['username'], 0, 1)); ?>
+            </div>
+            <span class="profile-name"><?php echo htmlspecialchars($currentUser['username']); ?></span>
             <a href="profile.php" class="edit-profile-link">Edit Profile</a>
+            <a href="logout.php" class="logout-link">Logout</a>
         </div>
     </div>
     <div class="main-content">

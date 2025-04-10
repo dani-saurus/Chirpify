@@ -190,3 +190,16 @@ body {
 .edit-profile-link:hover, .back-to-main:hover {
     text-decoration: underline;
 }
+
+.logout-link {
+    display: block;
+    margin-top: 5px;
+    text-decoration: none;
+    color: #e0245e;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.logout-link:hover {
+    text-decoration: underline;
+}

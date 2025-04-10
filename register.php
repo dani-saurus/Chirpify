@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once 'database.php';
-require_once 'init_db.php';  // Add this line at the top
+// require_once 'init_db.php';  
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);

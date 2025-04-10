@@ -24,15 +24,16 @@
     <div class="main-content">
         <div class="post-box">
             <div class="pfp">PFP</div>
-            <input id="tweet-input" type="text" placeholder="What's on your mind?">
-            
-            <!-- Hidden file input -->
-            <input id="image-input" type="file" accept="image/*" style="display: none;">
-            
-            <!-- Custom button for file input -->
-            <button id="upload-button" class="action-button">Upload Image</button>
-            
-            <button id="post-button" class="action-button">Post</button>
+            <form id="post-form" enctype="multipart/form-data" method="POST">
+                <div class="input-container">
+                    <input id="tweet-input" type="text" name="content" placeholder="What's on your mind?">
+                    <input id="image-input" type="file" name="image" accept="image/*" style="display: none;">
+                    <div class="button-container">
+                        <button type="button" id="upload-button" class="action-button">Upload Image</button>
+                        <button type="submit" id="post-button" class="action-button">Post</button>
+                    </div>
+                </div>
+            </form>
         </div>
         <div id="tweets-container">
             <!-- Tweets will be dynamically added here -->
